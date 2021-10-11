@@ -1,0 +1,19 @@
+version: "3"
+
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: toor
+      MARIADB_USER: sharex
+      MARIADB_PASSWORD: toor
+      MARIADB_DATABASE: media
+    ports:
+      - 3306  
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - 80:80
